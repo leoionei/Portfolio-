@@ -1,0 +1,124 @@
+/* --------- Basis --------- */
+:root {
+  --section-gap: 40px; /* Abstand zwischen Hero und Grid (ändere hier) */
+  --white-gap-height: 400px; /* Höhe des weißen Bereichs rechts (ändert Startposition des Bilds) */
+  --image-offset-y: 0px; /* zusätzliche Verschiebung des Bilds nach unten */
+  --image-rotate: -2deg; /* leichte Diagonale/Rotation des Bilds */
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-family: "neue-haas-grotesk-text", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #111;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+/* Reset typische Abstände */
+h1,
+p {
+  margin: 0 0 16px 0;
+}
+
+/* --------- Fullscreen Hero --------- */
+/* Wir subtrahieren den oberen Gap damit Fullscreen + padding nicht addieren */
+.fullscreen {
+  width: 100%;
+  height: 100vh; /* oder auto */
+  overflow: hidden; /* optional, damit Überstand nicht sichtbar ist */
+  background: black;
+}
+
+.fullscreen img {
+  width: 100%;
+  height: auto; /* damit nichts abgeschnitten wird */
+  display: block;
+}
+
+/* --------- Navigation (fixed) --------- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: none;
+  padding: 20px 0px 0px 60px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+nav ul li a:hover {
+  opacity: 0.7;
+}
+
+/* --------- Project Grid (unter dem Hero) --------- */
+/* grid-template: 4 Spalten; wir verwenden explizite Zeilen, damit das Bild später startet */
+.project-grid {
+  display: grid;
+  padding: 0 55px 55px 55px;
+  gap: 20px 20px;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.project-grid__text {
+  grid-column: 1 / 6;
+  padding-top: 5vw;
+}
+
+.project-grid__image {
+  padding-top: 26vw;
+  padding-bottom: 8vw;
+  grid-column: 7 / 13;
+}
+
+.project-grid__image_high {
+  padding-top: 13vw;
+  padding-bottom: 8vw;
+  grid-column: 9 / 13;
+}
+
+.project-grid__12 {
+  grid-column: auto / span 12;
+}
+.project-grid__6 {
+  grid-column: auto / span 6;
+}
+
+.project-grid__3 {
+  grid-column: auto / span 3;
+}
+
+.project-grid__text h1 {
+  font-size: 40px;
+  margin-bottom: 18px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.project-grid__text p {
+  font-size: 20px;
+  line-height: 1.5;
+}
